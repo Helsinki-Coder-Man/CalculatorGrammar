@@ -127,6 +127,12 @@ double expression()
     {
         switch (t.type)
         {
+                case'!':
+                for(double i = left-1;i>=1;i--)
+                {
+                left*=i;
+                }
+                return left;
         case'+':
             left += term();
             t = ts.get();
