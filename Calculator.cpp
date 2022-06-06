@@ -39,7 +39,7 @@ Token tokenStream::get()
     {
     case ';':
     case'q':
-        case '{': case: '}' case '(': case ')': case'+': case '-': case '*': case '/'://let each character represent itself.
+        case '{': case '}': case '(': case ')': case'+': case '-': case '*': case '/'://let each character represent itself.
         return Token{ ch };
 
     case'.':
