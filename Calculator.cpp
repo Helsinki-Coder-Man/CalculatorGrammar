@@ -39,7 +39,7 @@ Token tokenStream::get()
     {
     case ';':
     case'q':
-    case '(': case ')': case'+': case '-': case '*': case '/'://let each character represent itself.
+        case '{': case: '}' case '(': case ')': case'+': case '-': case '*': case '/'://let each character represent itself.
         return Token{ ch };
 
     case'.':
@@ -64,6 +64,7 @@ double primary()
     Token t = ts.get();
     switch (t.type)
     {
+            
     case '(':
     {
         double d = expression();
@@ -71,6 +72,15 @@ double primary()
         if (t.type != ')') std::cerr << "\t')' expected";
         return d;
     }
+            
+            case '{':
+    {
+        double d = expression();
+        t = ts.get();
+        if (t.type != '}') std::cerr << "\t'}' expected";
+        return d;
+    }
+            
     case '8':
         return t.value;
     default:
