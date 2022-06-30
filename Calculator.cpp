@@ -73,19 +73,26 @@ double primary()
         return d;
     }
             
-            case '{':
+    case '{':
     {
         double d = expression();
         t = ts.get();
         if (t.type != '}') std::cerr << "\t'}' expected";
         return d;
     }
+    case '-':
+        return - primary();
+        break;
+    case '+':
+        return primary();
+        break;
+            
             
     case '8':
         return t.value;
     default:
         std::cerr << "\tPrimary expected";
-
+        return -1;    
     }
 } // must start with or end with a number (deals with brackets)
 double term() 
